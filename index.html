@@ -8,12 +8,22 @@
 </head>
 <body>
     <script>
+        /* 
+            computerPlayer()
+            'options' variable holds a list of the three choices in RPC (Rock, Paper, Scissors).
+            'move' varible is given a random choice of the three choices to be used in game versus the user.
+        */
         function computerPlay(){
-            let options = ["rock","paper","scissors"];
-            let move = options[Math.floor(Math.random()*options.length)]
-            return move;
+            let gameOptions = ["rock","paper","scissors"];
+            let compMove = gameOptions[Math.floor(Math.random()*gameOptions.length)]
+            return compMove;
         }
 
+        /*
+            playGame()
+            The function acts as a checker of which player is the winner, if any.
+            The result is then logged in the console and shown to the user.
+        */
         function playGame(playerSelection, computerSelection){
             if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')){
                 console.log("Congratulations, you won! " + playerSelection + " beat " + computerSelection)
@@ -26,6 +36,10 @@
             }
         }
 
+        /*
+            game()
+            This function gets the choices from both the user and the computer, then calls the playGame function to start the game.
+        */
         function game(){
             let playerChoice = prompt("Choose one of the following: Rock, Paper, or Scissors").toLowerCase();
             let compChoice = computerPlay();
