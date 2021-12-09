@@ -5,47 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        /* 
-            computerPlayer()
-            'options' variable holds a list of the three choices in RPC (Rock, Paper, Scissors).
-            'move' varible is given a random choice of the three choices to be used in game versus the user.
-        */
-        function computerPlay(){
-            let gameOptions = ["rock","paper","scissors"];
-            let compMove = gameOptions[Math.floor(Math.random()*gameOptions.length)]
-            return compMove;
-        }
-
-        /*
-            playGame()
-            The function acts as a checker of which player is the winner, if any.
-            The result is then logged in the console and shown to the user.
-        */
-        function playGame(playerSelection, computerSelection){
-            if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')){
-                console.log("Congratulations, you won! " + playerSelection + " beat " + computerSelection)
-            }
-            else if(playerSelection == computerSelection){
-                console.log("Draw!");
-            }
-            else{
-                console.log("Sorry, you lost. " + computerSelection + " beat " + playerSelection);
-            }
-        }
-
-        /*
-            game()
-            This function gets the choices from both the user and the computer, then calls the playGame function to start the game.
-        */
-        function game(){
-            let playerChoice = prompt("Choose one of the following: Rock, Paper, or Scissors").toLowerCase();
-            let compChoice = computerPlay();
-            playGame(playerChoice,compChoice);
-        }
-        
-    </script>
+    <div id="container">
+        <div id="scoreboard">
+            <p id="playerScore">Player: 0</p>
+            <p id="compScore">Computer: 0</p>
+        </div>
+        <div id="results">
+            <p id="result">Awaiting match...</p>
+        </div>
+        <button class="btn" id="rock">Rock</button>
+        <button class="btn" id="paper">Paper</button>
+        <button class="btn" id="scissors">Scissors</button>
+    </div>
 </body>
 </html>
